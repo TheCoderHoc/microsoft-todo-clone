@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --dark-color: #181818;
+    --light-gray-color: #e6e6e6;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    color: var(--dark-color);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.6em;
+}
