@@ -1,0 +1,17 @@
+.Task {
+    align-items: center;
+    background-color: var(--light-gray-color);
+    border-radius: 0.5rem;
+    display: flex;
+    margin: 1rem 0;
+    padding: 1.5rem;
+}
+
+.Task__completed-icon {
+    display: flex;
+    align-items: center;
+}
+
+.Task__title {
+    margin-left: 1.5rem;
+}

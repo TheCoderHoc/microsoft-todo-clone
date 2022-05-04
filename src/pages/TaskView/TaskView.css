@@ -1,0 +1,16 @@
+.TaskView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+
+    /* Hide scrollbars */
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.TaskView::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+}

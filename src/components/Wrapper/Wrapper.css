@@ -1,0 +1,16 @@
+.Wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.Wrapper__sidebar {
+    background-color: red;
+    flex: 1;
+}
+
+.Wrapper__main {
+    background-color: rebeccapurple;
+    overflow: auto;
+    padding: 5rem;
+    flex: 5;
+}

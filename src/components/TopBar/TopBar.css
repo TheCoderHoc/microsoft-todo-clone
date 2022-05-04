@@ -1,0 +1,23 @@
+.TopBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.TopBar__categoryName {
+    font-size: 3rem;
+}
+
+.TopBar__date {
+    font-size: 1.3rem;
+}
+
+.TopBar__options {
+    display: flex;
+    align-items: center;
+}
+
+.TopBar__options svg {
+    margin: 0 1rem;
+}

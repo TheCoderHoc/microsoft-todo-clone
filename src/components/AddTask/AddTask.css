@@ -1,0 +1,23 @@
+.AddTask {
+    position: fixed;
+    bottom: 10px;
+    width: 78%;
+}
+
+.AddTask__form {
+    align-items: center;
+    background-color: var(--light-gray-color);
+    display: flex;
+    padding-left: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.AddTask__input {
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background-color: var(--light-gray-color);
+    font-size: 1.3rem;
+    outline: none;
+    padding: 1.5rem;
+    width: 90%;
+}
