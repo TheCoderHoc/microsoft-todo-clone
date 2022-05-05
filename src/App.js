@@ -17,6 +17,3 @@ const App = () => {
 };
 
 export default App;
-
-// Add task functionality ui only - 
-// Get tasks functionality from local storage

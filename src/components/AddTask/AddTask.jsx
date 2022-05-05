@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import { addTask } from "../../actions/tasks.actions";
 import { BsCircle } from "react-icons/bs";
 import { AiOutlinePlus } from "react-icons/ai";
+import useLocalStorage from "../../hooks/useLocalStorage";
 import "./AddTask.css";
 
 const AddTask = ({ addTask }) => {
     const [task, setTask] = useState("");
     const [toggleIcon, setToggleIcon] = useState(false);
+
+    const tasksLS = useLocalStorage("tasks");
 
     const handleFocus = () => {
         setToggleIcon(!toggleIcon);
@@ -22,9 +25,13 @@ const AddTask = ({ addTask }) => {
             description: "",
             completed: false,
             createdAt: new Date(),
-        }
+        };
 
         addTask(newTask);
+
+        tasksLS.push(newTask);
+
+        localStorage.setItem("tasks", JSON.stringify(tasksLS));
 
         setTask("");
     };

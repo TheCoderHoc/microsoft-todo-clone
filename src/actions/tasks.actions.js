@@ -5,9 +5,10 @@ import {
     DELETE_TASK,
 } from "../types/tasks.types";
 
-export const getTasks = () => {
+export const getTasks = (tasks) => {
     return {
         type: GET_TASKS,
+        payload: tasks,
     };
 };
 
@@ -31,4 +32,3 @@ export const deleteTask = (id) => {
         payload: id,
     };
 };
-

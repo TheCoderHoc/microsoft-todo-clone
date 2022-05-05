@@ -1,16 +1,23 @@
 import { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import Task from "../../components/Task/Task";
 import "./TaskView.css";
 import { getTasks } from "../../actions/tasks.actions";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
-const TaskView = (props) => {
+const TaskView = ({ tasks, getTasks }) => {
+    const tasksLS = useLocalStorage("tasks");
+
+    useEffect(() => {
+        getTasks(tasksLS);
+    }, [getTasks, tasksLS]);
+
     return (
         <Wrapper categoryName="Tasks">
             <div className="TaskView">
                 <div className="TaskView__task-list">
-                    {props.tasks.map((task) => (
+                    {tasks.map((task) => (
                         <Task key={task.id} {...task} />
                     ))}
                 </div>
@@ -25,6 +32,10 @@ const mapStateToProps = (state) => {
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getTasks: (tasks) => dispatch(getTasks(tasks)),
+    };
+};
 
-
-export default connect(mapStateToProps, null)(TaskView);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskView);
