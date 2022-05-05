@@ -22,7 +22,7 @@ const AddTask = ({ addTask }) => {
             description: "",
             completed: false,
             createdAt: new Date(),
-        };
+        }
 
         addTask(newTask);
 
