@@ -1,17 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const useLocalStorage = (item) => {
-    const [itemsLS, setItemsLS] = useState([]);
+const useLocalStorage = (key) => {
+    const [items, setItems] = useState([]);
+
+    const didMount = useRef(false);
 
     useEffect(() => {
-        if (localStorage.getItem(item)) {
-            setItemsLS(JSON.parse(localStorage.getItem(item)));
+        if (localStorage.getItem(key)) {
+            setItems(JSON.parse(localStorage.getItem(key)));
         } else {
-            setItemsLS([]);
+            setItems([]);
         }
-    }, [item]);
+    }, [key]);
 
-    return itemsLS;
+    useEffect(() => {
+        if (!didMount.current) {
+            return (didMount.current = true);
+        }
+        localStorage.setItem(key, JSON.stringify(items));
+    }, [key, items]);
+
+    const setLocalStorage = (value) => {
+        setItems((prevItems) => {
+            return [...prevItems, value];
+        });
+    };
+
+    return [items, setLocalStorage];
 };
 
 export default useLocalStorage;

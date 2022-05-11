@@ -7,7 +7,7 @@ import { getTasks } from "../../actions/tasks.actions";
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 const TaskView = ({ tasks, getTasks }) => {
-    const tasksLS = useLocalStorage("tasks");
+    const [tasksLS] = useLocalStorage("tasks");
 
     useEffect(() => {
         getTasks(tasksLS);
